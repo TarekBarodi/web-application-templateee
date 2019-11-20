@@ -1,19 +1,31 @@
 package se.kth.sda6.skeleton.posts;
 
-// @TODO add Hibernate annotations to define which table and columns should be used to save the Post Object.
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Post")
 public class Post {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "body")
     private String body;
+
+    @Column(name = "date")
+    private String date;
 
 //    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
 //    private List<Comment> comments = new ArrayList<>();
 
-    public Post() {
-    }
+    public Post() { }
 
-    public Post(String body) {
+    public Post(Long id, String body, String date) {
+        this.id = id;
         this.body = body;
+        this.date = date;
     }
 
     public Long getId() {
@@ -26,6 +38,10 @@ public class Post {
 
     public String getBody() {
         return body;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public void setBody(String body) {
