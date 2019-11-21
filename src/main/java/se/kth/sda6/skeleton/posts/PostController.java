@@ -24,7 +24,7 @@ public class PostController {
 
     @GetMapping("/{id}")
     public Post getPostByID(@PathVariable Long id){
-        return postService.getPostByID(id)
+        return postService.getByID(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 

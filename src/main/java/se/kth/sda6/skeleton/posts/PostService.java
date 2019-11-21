@@ -19,7 +19,7 @@ public class PostService {
                 .collect(Collectors.toList());
     }
 
-    public Optional<Post> getPostByID(Long id){
+    public Optional<Post> getByID(Long id){
         return repository.findById(id);
     }
 

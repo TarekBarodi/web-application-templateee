@@ -1,6 +1,10 @@
 package se.kth.sda6.skeleton.posts;
 
+import se.kth.sda6.skeleton.comments.Comment;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Post")
@@ -17,8 +21,9 @@ public class Post {
     @Column(name = "date")
     private String date;
 
-//    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-//    private List<Comment> comments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
 
     public Post() { }
 
@@ -48,13 +53,13 @@ public class Post {
         this.body = body;
     }
 
-//    public void addComment(Comment comment) {
-//        comments.add( comment );
-//        comment.setPost( this );
-//    }
-//
-//    public void removeComment(Comment comment) {
-//        comments.remove( comment );
-//        comment.setPost( null );
-//    }
+    public void addComment(Comment comment) {
+        comments.add( comment );
+        comment.setPost( this );
+    }
+
+    public void removeComment(Comment comment) {
+        comments.remove( comment );
+        comment.setPost( null );
+    }
 }
