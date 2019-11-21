@@ -41,21 +41,16 @@ public class CommentController {
         return new ResponseEntity<>(comment, HttpStatus.OK);
     }
 
-<<<<<<< HEAD
     @PostMapping("/comments")
-=======
-    @PostMapping("comments")
->>>>>>> master
+
     public ResponseEntity<?> create(@RequestBody Comment comment) {
         Comment newComment = commentService.create(comment);
         return new ResponseEntity<Comment>(newComment, HttpStatus.CREATED);
     }
 
-<<<<<<< HEAD
-    @PutMapping("qcomments")
-=======
-    @PutMapping("comments")
->>>>>>> master
+
+    @PutMapping("/comments")
+
     public ResponseEntity<?> update(@RequestBody Comment comment) {
         commentService.update(comment);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
