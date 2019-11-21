@@ -43,6 +43,7 @@ function App() {
             </Router>
   );
 
+  //return loggedInRouter;
   return (loggedIn ? loggedInRouter : <LoginPage/>);
 }
 
