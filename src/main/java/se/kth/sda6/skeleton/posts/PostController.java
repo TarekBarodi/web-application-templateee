@@ -18,32 +18,28 @@ public class PostController {
     @Autowired
     public PostService postService;
 
-
-    //get the list of posts
+    // get the list of posts
     @GetMapping("")
-    public List<Post> getAll(@RequestParam(required = false) String sort){
+    public List<Post> getAll(@RequestParam(required = false) String sort) {
         return postService.getAll(sort);
     }
 
-    //get a post by id
+    // get a post by id
     @GetMapping("/{id}")
-    public Post getByID(@PathVariable Long id){
-        return postService.getByID(id)
-                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
+    public Post getByID(@PathVariable Long id) {
+        return postService.getByID(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
-
-    //create post
+    // create post
     @PostMapping("")
-    public Post save(@RequestBody Post post) {
-        return postService.save(post);
+    public Post createPost(@RequestBody Post post) {
+        return postService.createPost(post);
     }
 
-    //update a post
+    // update a post
     @PutMapping("")
-    public Post update(@RequestBody Post post){
-        return postService.update(post)
-                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
+    public Post update(@RequestBody Post post) {
+        return postService.update(post).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @DeleteMapping("/{id}")

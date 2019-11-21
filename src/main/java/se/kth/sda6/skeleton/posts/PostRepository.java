@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
     Add also the correct annotation to describe the Repository.
  */
 @Repository
-public interface PostRepository extends JpaRepository<Post, Long>{
+public interface PostRepository extends JpaRepository<Post, Long> {
 
 }
