@@ -1,19 +1,36 @@
 package se.kth.sda6.skeleton.posts;
 
-// @TODO add Hibernate annotations to define which table and columns should be used to save the Post Object.
+import se.kth.sda6.skeleton.comments.Comment;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "Post")
 public class Post {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "body")
     private String body;
 
-//    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-//    private List<Comment> comments = new ArrayList<>();
+    @Column(name = "date")
+    private String date;
 
-    public Post() {
-    }
 
-    public Post(String body) {
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
+
+    public Post() { }
+
+    public Post(Long id, String body, String date) {
+        this.id = id;
         this.body = body;
+        this.date = date;
     }
 
     public Long getId() {
@@ -28,17 +45,21 @@ public class Post {
         return body;
     }
 
+    public String getDate() {
+        return date;
+    }
+
     public void setBody(String body) {
         this.body = body;
     }
 
-//    public void addComment(Comment comment) {
-//        comments.add( comment );
-//        comment.setPost( this );
-//    }
-//
-//    public void removeComment(Comment comment) {
-//        comments.remove( comment );
-//        comment.setPost( null );
-//    }
+    public void addComment(Comment comment) {
+        comments.add( comment );
+        comment.setPost( this );
+    }
+
+    public void removeComment(Comment comment) {
+        comments.remove( comment );
+        comment.setPost( null );
+    }
 }
