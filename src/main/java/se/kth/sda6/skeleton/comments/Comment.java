@@ -29,7 +29,6 @@ public class Comment {
         this.body = body;
     }
 
-<<<<<<< HEAD
     public Long getId() {
         return id;
     }
@@ -38,8 +37,7 @@ public class Comment {
         this.id = id;
     }
 
-=======
->>>>>>> master
+
     public String getBody() {
         return body;
     }

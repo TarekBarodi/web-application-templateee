@@ -3,6 +3,7 @@ package se.kth.sda6.skeleton.comments;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import se.kth.sda6.skeleton.posts.Post;
+import se.kth.sda6.skeleton.posts.PostRepository;
 
 import java.util.ArrayList;
 import java.util.List;

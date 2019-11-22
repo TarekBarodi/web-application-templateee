@@ -43,7 +43,7 @@ public class CommentController {
 
     @PostMapping("/comments")
 
-    public ResponseEntity<?> create(@RequestBody Comment comment) {
+    public ResponseEntity<?> create(@RequestBody Comment comment ) {
         Comment newComment = commentService.create(comment);
         return new ResponseEntity<Comment>(newComment, HttpStatus.CREATED);
     }
