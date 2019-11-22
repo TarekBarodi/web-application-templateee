@@ -47,11 +47,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // Whitelist
         http
-<<<<<<< HEAD
-            .authorizeRequests().antMatchers("/authenticate", "/register", "/posts", "/posts/**").permitAll()
-=======
+
             .authorizeRequests().antMatchers("/authenticate", "/register","/posts/**", "/posts", "/comments", "/comments/**").permitAll()
->>>>>>> master
+
             .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .anyRequest().authenticated();
 

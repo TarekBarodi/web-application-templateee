@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import se.kth.sda6.skeleton.comments.*;
 
 /*
     @TODO Autowire the PostRepository and use it to implement all the service methods.

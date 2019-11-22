@@ -1,20 +1,17 @@
 import React from "react";
-import CommentsSection from "./../comments/CommentsSection"
 
-function PostCard({post, onDeleteClick}) {
+function CommentCard({comment, onDeleteClick}) {
     return (
         <div className="card mt-3">
             <div className="card-body">
                 <p>
-                    {post.body}
+                    {comment.body}
                 </p>
 
                 <button className="btn btn-danger" onClick={onDeleteClick}>Delete</button>
-
-                <CommentsSection key={post.id} post={post}/>
             </div>
         </div>
     );
 }
 
-export default PostCard;
+export default CommentCard;

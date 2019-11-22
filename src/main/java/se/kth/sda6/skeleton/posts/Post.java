@@ -24,6 +24,9 @@ public class Post {
         this.body = body;
     }
 
+    public Post() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -34,10 +37,6 @@ public class Post {
 
     public String getBody() {
         return body;
-    }
-
-    public String getDate() {
-        return date;
     }
 
     public void setBody(String body) {
